@@ -23,11 +23,9 @@ public class Vector2f {
         return (x * otherVector.x) + (y + otherVector.y);
     }
 
-    public Vector2f normalize() {
+    public Vector2f normalized() {
         float magnitude = this.magnitude();
-        x /= magnitude;
-        y /= magnitude;
-        return this;
+        return new Vector2f(x / magnitude, y / magnitude);
     }
 
     public Vector2f rotate(float angle) {
@@ -56,6 +54,10 @@ public class Vector2f {
         return new Vector2f(x / number, y / number);
     }
 
+    public Vector2f abs(Vector2f vector) {
+        return new Vector2f(Math.abs(vector.x), Math.abs(vector.y));
+    }
+
     public float getX() {
         return x;
     }
@@ -76,4 +78,7 @@ public class Vector2f {
         return "(" + x + ", " + y + ")";
     }
 
+    public Vector2f clone() {
+        return new Vector2f(this.x, this.y);
+    }
 }

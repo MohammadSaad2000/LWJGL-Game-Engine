@@ -7,6 +7,7 @@ public class Vertex {
     private Vector3f position;
     private Vector2f textureUV;
 
+
     public Vertex(Vector3f position) {
         this(position, new Vector2f(0, 0));
     }

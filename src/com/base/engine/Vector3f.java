@@ -39,28 +39,16 @@ public class Vector3f {
         return new Vector3f(newX, newY, newZ);
     }
 
-    public Vector3f normalize() {
+    public Vector3f normalized() {
         float magnitude = this.magnitude();
-        x /= magnitude;
-        y /= magnitude;
-        z /= magnitude;
-        return this;
-    }
-
-    public Vector3f rotate(float angle) {
-
-        double radians = Math.toRadians(angle);
-        double cos = Math.cos(radians);
-        double sin = Math.sin(radians);
-
-
-        return null;
+        return new Vector3f(x / magnitude, y / magnitude, z / magnitude);
     }
 
     Vector3f rotate(float angle, Vector3f axis) {
         float sinHalfAngle = (float) (Math.sin(Math.toRadians(angle / 2)));
         float cosHalfAngle = (float) (Math.cos(Math.toRadians(angle / 2)));
 
+        axis = axis.normalized();
         float rx = axis.x * sinHalfAngle;
         float ry = axis.y * sinHalfAngle;
         float rz = axis.z * sinHalfAngle;
@@ -92,6 +80,10 @@ public class Vector3f {
 
     public Vector3f divide(float number) {
         return new Vector3f(x / number, y / number, z / number);
+    }
+
+    public Vector3f abs(Vector3f vector) {
+        return new Vector3f(Math.abs(vector.x), Math.abs(vector.y), Math.abs(vector.z));
     }
 
     public float getX() {

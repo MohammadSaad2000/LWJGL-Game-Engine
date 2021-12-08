@@ -9,8 +9,9 @@ public class ResourceLoader {
     public static Texture loadTexture(String fileName) {
         String extension = getFileExtension(fileName);
         if (extension.equalsIgnoreCase(".png")) {
-            Texture texture = new Texture(fileName);
+            Texture texture = new Texture("./resources/textures/" + fileName);
             return  texture;
+
         }
         return null;
     }

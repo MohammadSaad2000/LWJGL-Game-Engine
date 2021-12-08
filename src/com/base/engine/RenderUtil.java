@@ -9,11 +9,14 @@ public class RenderUtil {
     public static void clearScreen() {
         //TODO: Stencil Buffer
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        //glfwSwapBuffers(Window.getWindow());
+    }
+
+    public static void setClearColor(float R, float G, float B, float A) {
+        glClearColor(R, G, B, A);
     }
 
     public static void initGraphics() {
-        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         glFrontFace(GL_CW);
         glCullFace(GL_BACK);

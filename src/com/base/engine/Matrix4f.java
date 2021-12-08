@@ -121,8 +121,8 @@ public class Matrix4f {
     public static Matrix4f getViewMatrix(Vector3f forward, Vector3f up) {
 
         Matrix4f m = new Matrix4f();
-        Vector3f forwardCopy = forward.clone().normalize();
-        Vector3f upCopy = up.clone().normalize();
+        Vector3f forwardCopy = forward.clone().normalized();
+        Vector3f upCopy = up.clone().normalized();
 
         Vector3f right = upCopy.cross(forwardCopy);
 

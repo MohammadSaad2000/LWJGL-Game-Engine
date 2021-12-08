@@ -22,12 +22,9 @@ public class Quaternion {
         return (x * x) + (y * y) + (z * z) + (w * w);
     }
 
-    public Quaternion normalize() {
+    public Quaternion normalized() {
         float magnitude = this.magnitude();
-        x /= magnitude;
-        y /= magnitude;
-        z /= magnitude;
-        return this;
+        return new Quaternion(x / magnitude, y / magnitude, z / magnitude, w / magnitude);
     }
 
     public Quaternion conjugate() {
@@ -82,5 +79,9 @@ public class Quaternion {
 
     public void setW(float w) {
         this.w = w;
+    }
+
+    public Quaternion clone() {
+        return new Quaternion(this.x, this.y, this.z, this.w);
     }
 }

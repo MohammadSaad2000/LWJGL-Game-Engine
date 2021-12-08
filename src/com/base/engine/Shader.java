@@ -93,4 +93,8 @@ public class Shader {
         glUniformMatrix4fv(uniforms.get(uniformName), true, Util.createFlippedBuffer(value));
     }
 
+    public int getID() {
+        return programPointer;
+    }
+
 }
